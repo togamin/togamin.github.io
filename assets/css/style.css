@@ -178,12 +178,20 @@ img {
 .hero {
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(160deg, var(--shallow) 0%, var(--ocean) 100%);
+  background: url('../images/umibe.png') center center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(168,227,228,0.50) 0%, rgba(117,195,215,0.60) 100%);
+  z-index: 0;
 }
 
 .hero__content {
