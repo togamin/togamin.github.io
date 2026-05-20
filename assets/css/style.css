@@ -292,6 +292,21 @@ img {
   object-fit: cover;
 }
 
+.about__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ocean);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+
+.about__bio p {
+  margin-bottom: 12px;
+  line-height: 1.9;
+  color: var(--text);
+}
+
 .about__image-placeholder {
   display: none;
   align-items: center;
