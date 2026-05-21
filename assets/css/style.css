@@ -300,6 +300,25 @@ img {
   transform: translateY(-2px);
 }
 
+/* Global bubbles — fixed layer over entire page */
+.bubbles-global {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bubble-g {
+  position: absolute;
+  bottom: -20px;
+  border-radius: 50%;
+  background: rgba(117, 195, 215, 0.08);
+  border: 1px solid rgba(117, 195, 215, 0.22);
+  animation: bubble-rise ease-in infinite;
+}
+
+/* Hero bubbles */
 .hero__bubbles {
   position: absolute;
   inset: 0;
