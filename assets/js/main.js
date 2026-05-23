@@ -2,31 +2,22 @@
    Bubble generation
    =================================================== */
 const GLOBAL_BUBBLES = [
-  { left: 2,  size: 24, duration: 14, delay: 0    },
-  { left: 12, size: 12, duration: 18, delay: 3    },
-  { left: 22, size: 33, duration: 12, delay: 1    },
-  { left: 33, size: 15, duration: 20, delay: 5    },
-  { left: 40, size: 27, duration: 13, delay: 1.5  },
-  { left: 48, size: 15, duration: 25, delay: 12   },
-  { left: 55, size: 18, duration: 22, delay: 7    },
-  { left: 63, size: 24, duration: 15, delay: 6    },
-  { left: 69, size: 12, duration: 20, delay: 10   },
-  { left: 77, size: 27, duration: 14, delay: 5    },
-  { left: 85, size: 15, duration: 22, delay: 2.5  },
-  { left: 94, size: 30, duration: 12, delay: 3    },
-  { left: 9,  size: 18, duration: 26, delay: 15   },
-  { left: 31, size: 24, duration: 24, delay: 16   },
-  { left: 43, size: 15, duration: 27, delay: 14   },
-  { left: 57, size: 21, duration: 23, delay: 18   },
-  { left: 71, size: 18, duration: 25, delay: 17   },
-  { left: 96, size: 21, duration: 26, delay: 19   },
+  { left: 2,  size: 108, duration: 14, delay: 0    },
+  { left: 12, size: 54,  duration: 18, delay: 3    },
+  { left: 22, size: 149, duration: 12, delay: 1    },
+  { left: 33, size: 68,  duration: 20, delay: 5    },
+  { left: 40, size: 122, duration: 13, delay: 1.5  },
+  { left: 48, size: 68,  duration: 25, delay: 12   },
+  { left: 55, size: 81,  duration: 22, delay: 7    },
+  { left: 63, size: 108, duration: 15, delay: 6    },
+  { left: 69, size: 54,  duration: 20, delay: 10   },
 ];
 
 const HERO_BUBBLES = [
-  { left: 8,  size: 30, duration: 9,  delay: 0 },
-  { left: 33, size: 42, duration: 8,  delay: 3 },
-  { left: 62, size: 30, duration: 10, delay: 2 },
-  { left: 88, size: 36, duration: 9,  delay: 1 },
+  { left: 8,  size: 135, duration: 9,  delay: 0 },
+  { left: 33, size: 189, duration: 8,  delay: 3 },
+  { left: 62, size: 135, duration: 10, delay: 2 },
+  { left: 88, size: 162, duration: 9,  delay: 1 },
 ];
 
 function createBubble({ left, size, duration, delay }, className) {
