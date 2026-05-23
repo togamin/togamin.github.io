@@ -85,6 +85,12 @@ img {
   border: 1px solid var(--shallow);
 }
 
+.tag--navy {
+  background: var(--text-mid);
+  color: #ffffff;
+  border-color: var(--text-mid);
+}
+
 .tag--light {
   background: rgba(255,255,255,0.25);
   color: var(--white);
@@ -598,6 +604,64 @@ img {
 
 .work-card--whale .work-card__desc {
   color: rgba(255,255,255,0.85);
+}
+
+.work-card--camotes {
+  background: url('../images/camotes02.jpg') center center / cover no-repeat;
+  color: var(--white);
+}
+
+.work-card--camotes::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30,58,69,0.45) 0%, rgba(30,58,69,0.60) 100%);
+  border-radius: var(--radius);
+  z-index: 0;
+}
+
+.work-card--camotes .work-card__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.work-card--camotes .work-card__title {
+  color: var(--white);
+  font-family: var(--font-body);
+  font-style: normal;
+}
+
+.work-card--camotes .work-card__desc {
+  color: rgba(255,255,255,0.85);
+}
+
+.work-card--np {
+  background: url('../images/np_logo.png') center center / contain no-repeat, #f7f7f5;
+  color: var(--text);
+}
+
+.work-card--np::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(247,247,245,0.45);
+  border-radius: var(--radius);
+  z-index: 0;
+}
+
+.work-card--np .work-card__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.work-card--np .work-card__title {
+  color: #6b7280;
+  font-family: var(--font-body);
+  font-style: normal;
+}
+
+.work-card--np .work-card__desc {
+  color: var(--text-mid);
 }
 
 .work-card--placeholder {
