@@ -8,11 +8,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- OGP / SNS card -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://togamin.github.io/">
+  <meta property="og:title"       content="togamin">
+  <meta property="og:description" content="人間らしい豊かなスローライフを目指して。人事・組織開発 / whale_blog 運営。">
+  <meta property="og:image"       content="https://togamin.github.io/assets/images/umibe.png">
+  <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:site"       content="@togamin_blog">
+  <meta name="twitter:image"      content="https://togamin.github.io/assets/images/umibe.png">
 </head>
 <body>
 
-  <!-- Global Bubbles (populated by JS) -->
-  <div class="bubbles-global" aria-hidden="true"></div>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"  aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
 
   <!-- Nav -->
   <header class="nav" id="nav">
@@ -48,8 +59,6 @@
         </a>
       </div>
     </div>
-    <!-- Hero bubbles populated by JS -->
-    <div class="hero__bubbles" aria-hidden="true"></div>
     <div class="hero__waves">
       <div class="wave wave--1">
         <svg viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,6 +104,13 @@
       </div>
     </div>
   </section>
+
+  <!-- Wave: About → Career -->
+  <div class="section-wave section-wave--1" aria-hidden="true">
+    <svg viewBox="0 0 2880 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,35 C720,70 2160,0 2880,35 L2880,70 L0,70 Z" fill="#F7FBFC"/>
+    </svg>
+  </div>
 
   <!-- Career -->
   <section class="career section" id="career">
@@ -146,6 +162,13 @@
     </div>
   </section>
 
+  <!-- Wave: Career → Works -->
+  <div class="section-wave section-wave--2" aria-hidden="true">
+    <svg viewBox="0 0 2880 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,35 C720,0 2160,70 2880,35 L2880,70 L0,70 Z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+
   <!-- Works -->
   <section class="works section" id="works">
     <div class="container">
@@ -186,6 +209,13 @@
       </div>
     </div>
   </section>
+
+  <!-- Wave: Works → Links -->
+  <div class="section-wave section-wave--3" aria-hidden="true">
+    <svg viewBox="0 0 2880 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,45 C480,10 960,65 1440,35 C1920,5 2400,55 2880,30 L2880,70 L0,70 Z" fill="#EBF7F8"/>
+    </svg>
+  </div>
 
   <!-- Links -->
   <section class="links section" id="links">

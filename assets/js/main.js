@@ -1,42 +1,87 @@
 /* ===================================================
-   Bubble generation
+   Page Ripple — 波紋アニメーション
    =================================================== */
-const GLOBAL_BUBBLES = [
-  { left: 2,  size: 108, duration: 14, delay: 0    },
-  { left: 12, size: 54,  duration: 18, delay: 3    },
-  { left: 22, size: 149, duration: 12, delay: 1    },
-  { left: 33, size: 68,  duration: 20, delay: 5    },
-  { left: 40, size: 122, duration: 13, delay: 1.5  },
-  { left: 48, size: 68,  duration: 25, delay: 12   },
-  { left: 55, size: 81,  duration: 22, delay: 7    },
-  { left: 63, size: 108, duration: 15, delay: 6    },
-  { left: 69, size: 54,  duration: 20, delay: 10   },
-];
+(function initPageRipples() {
+  function spawnRipple() {
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
+    const rings = 2 + Math.floor(Math.random() * 2);
 
-const HERO_BUBBLES = [
-  { left: 8,  size: 135, duration: 9,  delay: 0 },
-  { left: 33, size: 189, duration: 8,  delay: 3 },
-  { left: 62, size: 135, duration: 10, delay: 2 },
-  { left: 88, size: 162, duration: 9,  delay: 1 },
-];
+    for (let i = 0; i < rings; i++) {
+      setTimeout(() => {
+        const el = document.createElement('div');
+        const size     = 120 + Math.random() * 280;
+        const duration = 8 + Math.random() * 6;
+        el.style.cssText = [
+          `position:absolute`,
+          `left:${x}px`,
+          `top:${window.scrollY + y}px`,
+          `width:${size}px`,
+          `height:${size}px`,
+          `border-radius:50%`,
+          `border:1.5px solid rgba(117,195,215,0.55)`,
+          `pointer-events:none`,
+          `z-index:50`,
+          `animation:page-ripple-expand ${duration}s linear forwards`,
+        ].join(';');
+        document.body.appendChild(el);
+        el.addEventListener('animationend', () => el.remove());
+      }, i * 700);
+    }
+  }
 
-function createBubble({ left, size, duration, delay }, className) {
-  const el = document.createElement('span');
-  el.className = className;
-  el.style.cssText = `left:${left}%;width:${size}px;height:${size}px;animation-duration:${duration}s;animation-delay:${delay}s;`;
-  return el;
+  function scheduleRipple() {
+    spawnRipple();
+    setTimeout(scheduleRipple, 667 + Math.random() * 833);
+  }
+  scheduleRipple();
+})();
+
+/* ===================================================
+   Custom Cursor
+   =================================================== */
+const cursorDot  = document.querySelector('.cursor-dot');
+const cursorRing = document.querySelector('.cursor-ring');
+
+if (cursorDot && cursorRing && window.matchMedia('(pointer: fine)').matches) {
+  let mouseX = 0, mouseY = 0;
+  let ringX  = 0, ringY  = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.style.left = mouseX + 'px';
+    cursorDot.style.top  = mouseY + 'px';
+  });
+
+  (function animateRing() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    cursorRing.style.left = ringX + 'px';
+    cursorRing.style.top  = ringY + 'px';
+    requestAnimationFrame(animateRing);
+  })();
+
+  document.querySelectorAll('a, button, .work-card, .link-card').forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+      cursorDot.classList.add('is-hovering');
+      cursorRing.classList.add('is-hovering');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursorDot.classList.remove('is-hovering');
+      cursorRing.classList.remove('is-hovering');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    const ripple = document.createElement('div');
+    ripple.className = 'cursor-ripple';
+    ripple.style.left = e.clientX + 'px';
+    ripple.style.top  = e.clientY + 'px';
+    document.body.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+  });
 }
-
-const globalContainer = document.querySelector('.bubbles-global');
-const heroContainer   = document.querySelector('.hero__bubbles');
-const fragment1 = document.createDocumentFragment();
-const fragment2 = document.createDocumentFragment();
-
-GLOBAL_BUBBLES.forEach((d) => fragment1.appendChild(createBubble(d, 'bubble--global')));
-HERO_BUBBLES.forEach((d)   => fragment2.appendChild(createBubble(d, 'bubble')));
-
-globalContainer.appendChild(fragment1);
-heroContainer.appendChild(fragment2);
 
 /* ===================================================
    Profile image fallback
